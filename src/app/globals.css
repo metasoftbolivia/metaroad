@@ -908,3 +908,976 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+.metaroad-navbar {
+  position: fixed;
+  z-index: 100;
+  inset: 0 0 auto;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+.metaroad-navbar.is-scrolled {
+  border-color: rgb(255 255 255 / 9%);
+  background: rgb(5 10 17 / 84%);
+  backdrop-filter: blur(18px);
+}
+
+.metaroad-navbar__inner {
+  position: relative;
+  display: flex;
+  width: min(100% - 3rem, 1600px);
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-inline: auto;
+}
+
+.metaroad-navbar__brand {
+  position: relative;
+  display: inline-flex;
+  width: 188px;
+  height: 38px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.metaroad-navbar__brand img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 14px rgb(246 201 21 / 15%));
+}
+
+.metaroad-navbar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.8rem, 1.7vw, 1.8rem);
+}
+
+.metaroad-navbar__link {
+  color: rgb(244 248 255 / 84%);
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 40%);
+  transition: color 160ms ease;
+}
+
+.metaroad-navbar__link:hover {
+  color: var(--accent);
+}
+
+.metaroad-navbar__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.metaroad-navbar__cta .whatsapp-cta__control {
+  min-height: 2.7rem;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.79rem;
+}
+
+.metaroad-navbar__cta .whatsapp-cta__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.metaroad-navbar__menu {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 50%;
+  background: rgb(6 14 24 / 68%);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.metaroad-navbar__menu svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.metaroad-hero {
+  min-height: calc(100svh + 450px);
+  background: #06101b;
+}
+
+.metaroad-hero__viewport {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #06101b;
+}
+
+.metaroad-layers {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.metaroad-layer {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
+  will-change: transform;
+}
+
+.metaroad-layer__scroll,
+.metaroad-layer__entry,
+.metaroad-layer__drift {
+  position: absolute;
+  inset: 0;
+}
+
+.metaroad-layer img,
+.metaroad-platform img,
+.metaroad-bus img,
+.metaroad-particles img,
+.metaroad-module-card__art img {
+  user-select: none;
+}
+
+.metaroad-layer--background {
+  z-index: 0;
+  inset: -1%;
+}
+
+.metaroad-layer--background img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.metaroad-layer__scroll[data-scroll-background] {
+  inset: 0;
+}
+
+.metaroad-layer--overlay {
+  z-index: 1;
+  inset: 0;
+  opacity: 0.19;
+  mix-blend-mode: screen;
+}
+
+.metaroad-layer--overlay img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.metaroad-layer--road {
+  z-index: 2;
+  inset: 0;
+  opacity: 0.56;
+  mix-blend-mode: screen;
+}
+
+.metaroad-layer--road .metaroad-layer__drift {
+  inset: -1%;
+}
+
+.metaroad-layer--road img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.metaroad-layer--rings {
+  z-index: 3;
+  top: 3%;
+  right: -8vw;
+  width: min(90vw, 1600px);
+  aspect-ratio: 1672 / 941;
+  overflow: visible;
+  opacity: 0.82;
+}
+
+.metaroad-layer--rings img {
+  object-fit: contain;
+}
+
+.metaroad-hero__shade {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(3 8 14 / 94%) 0%, rgb(3 8 14 / 84%) 21%, rgb(3 8 14 / 55%) 39%, rgb(3 8 14 / 14%) 61%, transparent 82%),
+    linear-gradient(0deg, rgb(3 8 14 / 34%), transparent 28%);
+}
+
+.metaroad-hero__content {
+  position: relative;
+  z-index: 9;
+  width: min(100%, 1680px);
+  height: 100%;
+  min-height: inherit;
+  margin-inline: auto;
+}
+
+.metaroad-hero__copy-position {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: max(5vw, calc((100vw - 1540px) / 2));
+  width: min(34vw, 490px);
+  translate: 0 -50%;
+}
+
+.metaroad-hero__copy {
+  max-width: 490px;
+}
+
+.metaroad-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.metaroad-hero__eyebrow::before {
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  box-shadow: 0 0 9px rgb(246 201 21 / 70%);
+}
+
+.metaroad-hero__title {
+  max-width: 11ch;
+  margin: 1.4rem 0 0;
+  color: #f8faff;
+  font-size: clamp(3.25rem, 5.4vw, 5.5rem);
+  font-weight: 820;
+  letter-spacing: -0.068em;
+  line-height: 0.98;
+  text-wrap: balance;
+  text-shadow: 0 4px 28px rgb(0 0 0 / 35%);
+}
+
+.metaroad-hero__title span {
+  display: block;
+  margin-top: 0.1em;
+  color: var(--accent);
+  text-shadow: 0 0 28px rgb(246 201 21 / 19%);
+}
+
+.metaroad-hero__description {
+  max-width: 28rem;
+  margin: 1.35rem 0 0;
+  color: #d4dce8;
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 50%);
+}
+
+.metaroad-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.8rem;
+  scroll-margin-top: 7rem;
+}
+
+.metaroad-hero__actions .whatsapp-cta__control {
+  min-height: 3.1rem;
+  padding-inline: 1.2rem;
+  font-size: 0.87rem;
+}
+
+.metaroad-hero__secondary {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 34%);
+  border-radius: 999px;
+  background: rgb(8 16 26 / 56%);
+  color: #f6f8fc;
+  padding: 0.75rem 1.1rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.metaroad-hero__secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgb(246 201 21 / 78%);
+  background: rgb(246 201 21 / 9%);
+}
+
+.metaroad-hero__secondary span:last-child {
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+.metaroad-hero__stage {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+}
+
+.metaroad-platform__parallax,
+.metaroad-bus__parallax,
+.metaroad-particles {
+  position: absolute;
+  pointer-events: none;
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
+  will-change: transform;
+}
+
+.metaroad-platform__parallax {
+  z-index: 1;
+  right: 2%;
+  bottom: 8%;
+  width: clamp(700px, 67vw, 1260px);
+  aspect-ratio: 2172 / 724;
+}
+
+.metaroad-platform__scroll,
+.metaroad-platform__entry,
+.metaroad-platform__float,
+.metaroad-bus__scroll,
+.metaroad-bus__entry,
+.metaroad-bus__float,
+.metaroad-particles__scroll,
+.metaroad-particles__entry,
+.metaroad-particles__drift {
+  position: absolute;
+  inset: 0;
+}
+
+.metaroad-platform__float img {
+  object-fit: contain;
+}
+
+.metaroad-bus__parallax {
+  z-index: 2;
+  right: 8%;
+  bottom: 14%;
+  width: clamp(660px, 58vw, 1120px);
+  aspect-ratio: 1774 / 887;
+}
+
+.metaroad-bus__entry img {
+  object-fit: contain;
+  filter: drop-shadow(0 25px 30px rgb(0 0 0 / 32%));
+}
+
+.metaroad-orbit {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+
+.metaroad-orbit__hint {
+  display: none;
+}
+
+.metaroad-orbit__list {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.metaroad-orbit__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(var(--orbit-tilt));
+  pointer-events: none;
+}
+
+.metaroad-orbit__parallax,
+.metaroad-orbit__entry,
+.metaroad-orbit__float {
+  display: block;
+}
+
+.metaroad-orbit__parallax {
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
+  will-change: transform;
+}
+
+.metaroad-module-card {
+  position: relative;
+  display: flex;
+  width: clamp(118px, 10.5vw, 168px);
+  aspect-ratio: 1.08 / 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgb(102 213 255 / 60%);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, rgb(10 28 46 / 91%), rgb(5 14 25 / 94%));
+  box-shadow:
+    0 14px 34px rgb(0 0 0 / 34%),
+    inset 0 1px rgb(255 255 255 / 13%),
+    0 0 16px rgb(44 190 255 / 15%);
+  color: #f7f9ff;
+  padding: 0.8rem;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+  backdrop-filter: blur(14px);
+}
+
+.metaroad-module-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(155deg, rgb(255 255 255 / 15%), transparent 38%);
+  content: "";
+  pointer-events: none;
+}
+
+.metaroad-module-card:hover {
+  transform: translateY(-6px) scale(1.08);
+  border-color: #8ce5ff;
+  box-shadow:
+    0 18px 36px rgb(0 0 0 / 42%),
+    0 0 25px rgb(53 202 255 / 32%),
+    inset 0 1px rgb(255 255 255 / 20%);
+}
+
+.metaroad-module-card[data-active="true"] {
+  border-color: var(--accent);
+  background: linear-gradient(145deg, rgb(49 37 10 / 93%), rgb(10 16 24 / 96%));
+  box-shadow:
+    0 16px 36px rgb(0 0 0 / 42%),
+    0 0 28px rgb(246 201 21 / 30%),
+    inset 0 0 18px rgb(246 201 21 / 10%);
+}
+
+.metaroad-module-card__art {
+  position: absolute;
+  inset: -4%;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.metaroad-module-card__art img {
+  object-fit: cover;
+}
+
+.metaroad-module-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  color: #f6f8ff;
+  font-size: clamp(0.72rem, 0.88vw, 0.84rem);
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.metaroad-module-card__icon {
+  width: clamp(1.45rem, 2vw, 1.9rem);
+  height: clamp(1.45rem, 2vw, 1.9rem);
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px rgb(246 201 21 / 34%));
+  stroke-width: 1.8;
+}
+
+.metaroad-connections {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.metaroad-connections__line {
+  fill: none;
+  stroke: #ffd400;
+  stroke-width: 1.35;
+  stroke-dasharray: 100 100;
+  filter: drop-shadow(0 0 4px rgb(255 212 0 / 62%));
+  vector-effect: non-scaling-stroke;
+}
+
+.metaroad-connections__line[data-active="true"] {
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 7px rgb(255 212 0 / 90%));
+}
+
+.metaroad-particles {
+  z-index: 4;
+  inset: 0;
+  opacity: 0.56;
+}
+
+.metaroad-particles__scroll {
+  inset: 0;
+}
+
+.metaroad-particles__drift img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.metaroad-hero__scroll-cue {
+  position: absolute;
+  z-index: 10;
+  bottom: 1.8rem;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgb(241 245 252 / 72%);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  translate: -50% 0;
+}
+
+.metaroad-hero__scroll-icon {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 1rem;
+  animation: metaroad-scroll-cue 1.8s ease-in-out infinite;
+}
+
+@keyframes metaroad-scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1279px) {
+  .metaroad-hero__copy-position {
+    left: 4vw;
+    width: min(36vw, 440px);
+  }
+
+  .metaroad-hero__title {
+    font-size: clamp(3.2rem, 5vw, 4.6rem);
+  }
+
+  .metaroad-bus__parallax {
+    right: 5%;
+    width: 60vw;
+  }
+
+  .metaroad-module-card {
+    width: clamp(116px, 10.2vw, 140px);
+    border-radius: 1.05rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .metaroad-navbar__inner {
+    width: min(100% - 2.25rem, 920px);
+    min-height: 72px;
+    gap: 0.75rem;
+  }
+
+  .metaroad-navbar__brand {
+    width: 166px;
+    height: 34px;
+  }
+
+  .metaroad-navbar__menu {
+    display: inline-flex;
+  }
+
+  .metaroad-navbar__nav {
+    position: absolute;
+    z-index: 101;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 1rem;
+    background: rgb(5 10 17 / 96%);
+    padding: 0.45rem;
+    box-shadow: 0 18px 46px rgb(0 0 0 / 35%);
+    backdrop-filter: blur(18px);
+  }
+
+  .metaroad-navbar__nav.is-open {
+    display: flex;
+  }
+
+  .metaroad-navbar__link {
+    border-radius: 0.65rem;
+    padding: 0.85rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .metaroad-navbar__link:hover {
+    background: rgb(246 201 21 / 8%);
+  }
+}
+
+@media (max-width: 1279px) {
+  .metaroad-hero {
+    min-height: 100svh;
+  }
+
+  .metaroad-hero__viewport {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .metaroad-hero__content {
+    display: flex;
+    width: min(100% - 3rem, 880px);
+    height: auto;
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: stretch;
+    padding-block: 112px 2rem;
+  }
+
+  .metaroad-hero__copy-position {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    translate: none;
+  }
+
+  .metaroad-hero__copy-scroll {
+    width: 100%;
+  }
+
+  .metaroad-hero__copy {
+    max-width: 680px;
+  }
+
+  .metaroad-hero__title {
+    max-width: 13ch;
+    font-size: clamp(3.4rem, 8.2vw, 5.4rem);
+  }
+
+  .metaroad-hero__description {
+    max-width: 34rem;
+  }
+
+  .metaroad-hero__stage {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(390px, 54vw, 500px);
+    flex: 0 0 auto;
+    margin-top: 0.75rem;
+  }
+
+  .metaroad-platform__parallax {
+    right: auto;
+    bottom: 15%;
+    left: 50%;
+    width: 92vw;
+    margin-left: -46vw;
+  }
+
+  .metaroad-bus__parallax {
+    right: auto;
+    bottom: 27%;
+    left: 50%;
+    width: 76vw;
+    margin-left: -38vw;
+  }
+
+  .metaroad-orbit {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 142px;
+    overflow: hidden;
+  }
+
+  .metaroad-orbit__hint {
+    display: block;
+    margin: 0 0 0.35rem;
+    color: rgb(239 245 254 / 78%);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+  }
+
+  .metaroad-orbit__list {
+    position: relative;
+    display: flex;
+    height: 118px;
+    gap: 0.65rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.2rem 0.8rem 0.65rem 0.1rem;
+    scroll-padding-inline: 0.1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: rgb(246 201 21 / 55%) transparent;
+    scrollbar-width: thin;
+    pointer-events: auto;
+  }
+
+  .metaroad-orbit__item {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    flex: 0 0 132px;
+    scroll-snap-align: start;
+    transform: none;
+  }
+
+  .metaroad-module-card {
+    width: 132px;
+    height: 108px;
+    aspect-ratio: auto;
+    border-radius: 0.95rem;
+    padding: 0.55rem;
+  }
+
+  .metaroad-module-card__content {
+    gap: 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .metaroad-module-card__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .metaroad-connections {
+    display: none;
+  }
+
+  .metaroad-hero__scroll-cue {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    align-self: center;
+    margin-top: 1.05rem;
+    translate: none;
+  }
+
+  .metaroad-hero__shade {
+    background:
+      linear-gradient(180deg, rgb(3 8 14 / 72%) 0%, rgb(3 8 14 / 44%) 37%, rgb(3 8 14 / 10%) 74%),
+      linear-gradient(90deg, rgb(3 8 14 / 24%), transparent 80%);
+  }
+}
+
+@media (max-width: 640px) {
+  .metaroad-navbar__inner {
+    width: min(100% - 1.4rem, 560px);
+    min-height: 66px;
+    gap: 0.45rem;
+  }
+
+  .metaroad-navbar__brand {
+    width: 138px;
+    height: 30px;
+  }
+
+  .metaroad-navbar__actions {
+    gap: 0.4rem;
+  }
+
+  .metaroad-navbar__cta .whatsapp-cta__control {
+    min-height: 2.35rem;
+    gap: 0.32rem;
+    padding: 0.52rem 0.62rem;
+    font-size: 0.68rem;
+  }
+
+  .metaroad-navbar__cta .whatsapp-cta__icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .metaroad-navbar__menu {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .metaroad-hero__content {
+    width: min(100% - 2rem, 560px);
+    padding-block: 96px 1.65rem;
+  }
+
+  .metaroad-hero__eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+
+  .metaroad-hero__title {
+    max-width: 11ch;
+    margin-top: 1rem;
+    font-size: clamp(2.55rem, 10.8vw, 3.8rem);
+    line-height: 0.98;
+  }
+
+  .metaroad-hero__description {
+    max-width: 34rem;
+    margin-top: 0.95rem;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .metaroad-hero__actions {
+    align-items: stretch;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
+  }
+
+  .metaroad-hero__actions .whatsapp-cta {
+    width: 100%;
+  }
+
+  .metaroad-hero__actions .whatsapp-cta__control {
+    width: 100%;
+    min-height: 3rem;
+    justify-content: center;
+    font-size: 0.82rem;
+  }
+
+  .metaroad-hero__secondary {
+    min-height: 2.85rem;
+    align-self: flex-start;
+    padding-inline: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .metaroad-hero__stage {
+    height: clamp(320px, 88vw, 380px);
+    margin-top: 0.55rem;
+  }
+
+  .metaroad-platform__parallax {
+    bottom: 19%;
+    width: 120vw;
+    margin-left: -60vw;
+  }
+
+  .metaroad-bus__parallax {
+    bottom: 32%;
+    width: 108vw;
+    margin-left: -54vw;
+  }
+
+  .metaroad-orbit {
+    height: 138px;
+  }
+
+  .metaroad-orbit__list {
+    height: 116px;
+    gap: 0.55rem;
+  }
+
+  .metaroad-orbit__item {
+    flex-basis: 126px;
+  }
+
+  .metaroad-module-card {
+    width: 126px;
+    height: 104px;
+  }
+
+  .metaroad-layer--overlay {
+    opacity: 0.12;
+  }
+
+  .metaroad-layer--rings {
+    top: 35%;
+    right: -17vw;
+    width: 128vw;
+  }
+
+  .metaroad-hero__scroll-cue {
+    margin-top: 0.8rem;
+    font-size: 0.64rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metaroad-hero__scroll-icon {
+    animation: none;
+  }
+
+  .metaroad-module-card:hover {
+    transform: none;
+  }
+
+  .metaroad-layer,
+  .metaroad-orbit__parallax,
+  .metaroad-platform__parallax,
+  .metaroad-bus__parallax,
+  .metaroad-particles {
+    will-change: auto;
+  }
+}
