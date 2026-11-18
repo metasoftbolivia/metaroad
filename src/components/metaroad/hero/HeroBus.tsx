@@ -2,10 +2,10 @@ import Image from "next/image"
 
 export function HeroBus() {
   return (
-    <div className="metaroad-bus__parallax" data-parallax-depth="1">
-      <div className="metaroad-bus__scroll" data-bus-scroll>
-        <div className="metaroad-bus__entry" data-bus-entry id="clientes">
-          <div className="metaroad-bus__float" data-bus-float>
+    <div className="metaroad-bus__parallax">
+      <div className="metaroad-bus__scroll">
+        <div className="metaroad-bus__entry" data-system-bus id="clientes">
+          <div className="metaroad-bus__float">
             <Image
               src="/imágenes_web/hero/bus-hero.png"
               alt=""
