@@ -5,11 +5,11 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "METAROAD | Tu empresa de transporte, conectada",
   description:
-    "Explora los módulos de METAROAD y conoce cómo conectar la operación de tu empresa de transporte.",
+    "Venta de pasajes, encomiendas, caja, usuarios, unidades y reportes en un solo sistema con METAROAD.",
 }
 
 export const viewport: Viewport = {
-  themeColor: "#101216",
+  themeColor: "#06101b",
   colorScheme: "dark",
 }
 
