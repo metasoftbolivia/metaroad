@@ -1,4 +1,4 @@
-import type { HeroModuleDefinition } from "@/components/metaroad/hero/HeroModuleCard"
+import type { HeroModuleDefinition } from "@/components/metaroad/hero/SystemModulePanel"
 
 const modulePaths = [
   "M 430 296 C 440 360 530 420 640 500",
@@ -23,14 +23,23 @@ export function HeroConnections({ modules, activeModuleId }: HeroConnectionsProp
       aria-hidden="true"
     >
       {modules.map((module, index) => (
-        <path
-          className="metaroad-connections__line"
-          key={module.id}
-          d={modulePaths[index]}
-          pathLength="100"
-          data-connection-line
-          data-active={module.id === activeModuleId}
-        />
+        <g key={module.id}>
+          <path
+            className="metaroad-connections__line metaroad-connections__base"
+            d={modulePaths[index]}
+            pathLength="100"
+            data-connection-base
+            data-module-id={module.id}
+            data-active={module.id === activeModuleId}
+          />
+          <path
+            className="metaroad-connections__line metaroad-connections__packet"
+            d={modulePaths[index]}
+            pathLength="100"
+            data-connection-pulse
+            data-module-id={module.id}
+          />
+        </g>
       ))}
     </svg>
   )

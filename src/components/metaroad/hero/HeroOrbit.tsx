@@ -1,14 +1,13 @@
-import type { HeroModuleDefinition } from "@/components/metaroad/hero/HeroModuleCard"
-import { HeroModuleCard } from "@/components/metaroad/hero/HeroModuleCard"
+import type { HeroModuleDefinition } from "@/components/metaroad/hero/SystemModulePanel"
+import { SystemModulePanel } from "@/components/metaroad/hero/SystemModulePanel"
 
 type HeroOrbitProps = {
   modules: HeroModuleDefinition[]
   activeModuleId: string
-  reducedMotion: boolean
   onSelect: (moduleId: string) => void
 }
 
-export function HeroOrbit({ modules, activeModuleId, reducedMotion, onSelect }: HeroOrbitProps) {
+export function HeroOrbit({ modules, activeModuleId, onSelect }: HeroOrbitProps) {
   const activeModule = modules.find((module) => module.id === activeModuleId)
 
   return (
@@ -16,11 +15,10 @@ export function HeroOrbit({ modules, activeModuleId, reducedMotion, onSelect }: 
       <p className="metaroad-orbit__hint">Desliza para explorar los módulos</p>
       <ul className="metaroad-orbit__list" aria-label="Selecciona un módulo METAROAD">
         {modules.map((module) => (
-          <HeroModuleCard
+          <SystemModulePanel
             key={module.id}
             module={module}
             isActive={module.id === activeModuleId}
-            reducedMotion={reducedMotion}
             onSelect={onSelect}
           />
         ))}

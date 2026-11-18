@@ -2,10 +2,10 @@ import Image from "next/image"
 
 export function HeroPlatform() {
   return (
-    <div className="metaroad-platform__parallax" data-parallax-depth="0.9">
-      <div className="metaroad-platform__scroll" data-platform-scroll>
-        <div className="metaroad-platform__entry" data-platform-entry>
-          <div className="metaroad-platform__float" data-platform-float>
+    <div className="metaroad-platform__parallax" data-system-platform>
+      <div className="metaroad-platform__scroll">
+        <div className="metaroad-platform__entry">
+          <div className="metaroad-platform__float">
             <Image
               src="/imágenes_web/hero/hero-platform.png"
               alt=""
