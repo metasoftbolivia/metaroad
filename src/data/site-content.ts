@@ -18,6 +18,7 @@ export const siteContentSchema = z.object({
     description: z.string().min(1),
     primaryCta: z.string().min(1),
     secondaryCta: z.string().min(1),
+    busModelUrl: z.string().regex(/^\/imágenes_web\/buses\/[A-Za-z0-9._-]+\.glb$/i).nullable(),
   }),
   modules: z.object({
     title: z.string().min(1),
@@ -26,6 +27,7 @@ export const siteContentSchema = z.object({
       z.object({
         label: z.string().min(1),
         href: anchorSchema,
+        icon: z.string().regex(/^\/[^\s]+\.svg$/i),
       }),
     ),
   }),
@@ -50,31 +52,59 @@ export const siteContentSchema = z.object({
 const content = {
   brand: "METAROAD",
   navigation: [
+    { label: "Inicio", href: "#inicio" },
     { label: "Módulos", href: "#modulos" },
-    { label: "Pasajes", href: "#demo-pasajes" },
-    { label: "Encomiendas", href: "#demo-encomiendas" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Cómo funciona", href: "#demo" },
   ],
   hero: {
-    eyebrow: "Base técnica de la landing",
-    title: "METAROAD",
+    eyebrow: "Software de transporte",
+    title: "Tu empresa de transporte. Una operación conectada.",
     description:
-      "Estructura inicial para la landing comercial del software de operación para empresas de transporte. El contenido final se incorporará después de validar los datos reales.",
-    primaryCta: "Explorar módulos",
-    secondaryCta: "Ir a contacto",
+      "Explora los módulos de METAROAD y conoce el alcance real de cada uno en una demostración guiada.",
+    primaryCta: "Solicitar demo por WhatsApp",
+    secondaryCta: "Ver cómo funciona",
+    busModelUrl: "/imágenes_web/buses/metaroad.glb",
   },
   modules: {
     title: "Módulos previstos",
     description:
       "Secciones organizadas según los módulos indicados para METAROAD. Sus demostraciones y contenido se completarán en fases posteriores.",
     items: [
-      { label: "Venta de pasajes", href: "#demo-pasajes" },
-      { label: "Encomiendas", href: "#demo-encomiendas" },
-      { label: "Caja y egresos", href: "#caja-egresos" },
-      { label: "Usuarios y permisos", href: "#usuarios-permisos" },
-      { label: "Personas", href: "#personas" },
-      { label: "Unidades y flota", href: "#unidades-flota" },
-      { label: "Reportes", href: "#reportes" },
+      {
+        label: "Venta de pasajes",
+        href: "#demo-pasajes",
+        icon: "/imágenes_web/iconos/pasajes.svg",
+      },
+      {
+        label: "Encomiendas",
+        href: "#demo-encomiendas",
+        icon: "/imágenes_web/iconos/encomiendas.svg",
+      },
+      {
+        label: "Caja y egresos",
+        href: "#caja-egresos",
+        icon: "/imágenes_web/iconos/caja.svg",
+      },
+      {
+        label: "Usuarios y permisos",
+        href: "#usuarios-permisos",
+        icon: "/imágenes_web/iconos/usuarios.svg",
+      },
+      {
+        label: "Personas",
+        href: "#personas",
+        icon: "/imágenes_web/iconos/personas.svg",
+      },
+      {
+        label: "Unidades y flota",
+        href: "#unidades-flota",
+        icon: "/imágenes_web/iconos/unidades.svg",
+      },
+      {
+        label: "Reportes",
+        href: "#reportes",
+        icon: "/imágenes_web/iconos/reportes.svg",
+      },
     ],
   },
   sections: {

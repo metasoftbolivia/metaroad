@@ -1,37 +1,40 @@
+import Image from "next/image"
 import { siteContent } from "@/data/site-content"
+import { WhatsAppCta } from "@/components/layout/whatsapp-cta"
 
 export function Header() {
   return (
     <>
-      <a
-        className="sr-only fixed left-4 top-4 z-50 rounded bg-accent px-4 py-2 font-semibold text-background focus:not-sr-only"
-        href="#contenido"
-      >
+      <a className="skip-link sr-only focus:not-sr-only" href="#contenido">
         Saltar al contenido
       </a>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <header className="site-header">
+        <div className="site-header__inner">
           <a
             href="#inicio"
-            className="w-fit text-lg font-black tracking-[0.16em] text-foreground"
+            className="site-header__brand"
             aria-label={`${siteContent.brand}, ir al inicio`}
           >
-            {siteContent.brand}
+            <Image
+              src="/imágenes_web/logo/metaroad_wordmark_recreacion.svg"
+              alt={siteContent.brand}
+              width={194}
+              height={50}
+              priority
+            />
           </a>
-          <nav aria-label="Navegación principal">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              {siteContent.navigation.map((item) => (
-                <li key={item.href}>
-                  <a
-                    className="rounded-sm transition-colors hover:text-accent focus-visible:text-accent"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <nav className="site-header__nav" aria-label="Navegación principal">
+            {siteContent.navigation.map((item) => (
+              <a className="site-header__link" href={item.href} key={item.href}>
+                {item.label}
+              </a>
+            ))}
           </nav>
+          <WhatsAppCta
+            className="site-header__cta"
+            label="Solicitar demo"
+            statusId="header-whatsapp-status"
+          />
         </div>
       </header>
     </>

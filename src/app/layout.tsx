@@ -3,9 +3,9 @@ import type { ReactNode } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "METAROAD | Base técnica",
+  title: "METAROAD | Tu empresa de transporte, conectada",
   description:
-    "Estructura inicial de la landing comercial de METAROAD para empresas de transporte.",
+    "Explora los módulos de METAROAD y conoce cómo conectar la operación de tu empresa de transporte.",
 }
 
 export const viewport: Viewport = {
