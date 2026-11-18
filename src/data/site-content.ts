@@ -60,7 +60,7 @@ const content = {
     eyebrow: "Software de transporte",
     title: "Tu empresa de transporte. Una operación conectada.",
     description:
-      "Explora los módulos de METAROAD y conoce el alcance real de cada uno en una demostración guiada.",
+      "Venta de pasajes, encomiendas, caja, usuarios, unidades y reportes en un solo sistema.",
     primaryCta: "Solicitar demo por WhatsApp",
     secondaryCta: "Ver cómo funciona",
     busModelUrl: "/imágenes_web/buses/metaroad.glb",
