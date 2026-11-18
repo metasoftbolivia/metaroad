@@ -1,5 +1,3 @@
-import { existsSync } from "node:fs"
-import { join } from "node:path"
 import { Play } from "lucide-react"
 import { ModuleExperience } from "@/components/hero/module-experience"
 import { WhatsAppCta } from "@/components/layout/whatsapp-cta"
@@ -8,11 +6,6 @@ import { siteContent } from "@/data/site-content"
 export function Hero() {
   const { hero } = siteContent
   const [firstLine, secondLine] = hero.title.split(". ")
-  const modelPath = hero.busModelUrl
-    ? join(process.cwd(), "public", hero.busModelUrl.slice(1))
-    : null
-  const modelUrl = modelPath && existsSync(modelPath) ? hero.busModelUrl : null
-
   return (
     <section id="inicio" className="hero" aria-labelledby="hero-title">
       <div className="hero__backdrop" aria-hidden="true" />
@@ -41,7 +34,7 @@ export function Hero() {
           )}
         </div>
         <div className="hero__visual">
-          <ModuleExperience modelUrl={modelUrl} />
+          <ModuleExperience />
         </div>
       </div>
     </section>
