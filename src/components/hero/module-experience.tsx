@@ -24,7 +24,7 @@ const orbitPositions = [
   { x: "28%", y: "60%", rotation: "-5deg" },
 ]
 
-export function ModuleExperience({ modelUrl }: { modelUrl: string | null }) {
+export function ModuleExperience() {
   const rootRef = useRef<HTMLDivElement>(null)
   const detailRef = useRef<HTMLElement>(null)
   const animationsRef = useRef<gsap.core.Animation[]>([])
@@ -152,7 +152,7 @@ export function ModuleExperience({ modelUrl }: { modelUrl: string | null }) {
   return (
     <div className="module-experience" id="modulos" ref={rootRef}>
       <div className="module-experience__stage" data-bus-reveal>
-        <BusStage animationsPaused={animationsPaused} modelUrl={modelUrl} />
+        <BusStage />
         <p className="module-orbit__hint">Desliza para explorar los módulos</p>
         <ul
           className="module-orbit"

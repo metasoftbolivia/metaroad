@@ -18,7 +18,6 @@ export const siteContentSchema = z.object({
     description: z.string().min(1),
     primaryCta: z.string().min(1),
     secondaryCta: z.string().min(1),
-    busModelUrl: z.string().regex(/^\/imágenes_web\/buses\/[A-Za-z0-9._-]+\.glb$/i).nullable(),
   }),
   modules: z.object({
     title: z.string().min(1),
@@ -63,7 +62,6 @@ const content = {
       "Venta de pasajes, encomiendas, caja, usuarios, unidades y reportes en un solo sistema.",
     primaryCta: "Solicitar demo por WhatsApp",
     secondaryCta: "Ver cómo funciona",
-    busModelUrl: "/imágenes_web/buses/metaroad.glb",
   },
   modules: {
     title: "Módulos previstos",
