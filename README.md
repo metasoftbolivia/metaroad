@@ -7,6 +7,26 @@ Incluye SVG reutilizables: iconos de módulos, logo **recreado (no oficial)**, o
 **No inventar** oficina, fotos de empresa, estadísticas, destinos, rutas, precios, teléfonos o datos de contacto. Tomar datos exclusivamente de la landing original y confirmar los que no sean legibles. El mapa real se integra con proveedor de mapas cuando se confirme dirección/coordenadas.
 
 ## Uso
-- Copiar `imágenes_web/` a `public/imágenes_web/` en Next.js, o si GitHub lo conserva en la raíz del repo, moverlo a `public/` para servir los assets.
+- Los recursos originales se conservan en `imágenes_web/` y se copian a `public/imágenes_web/` para servirlos desde Next.js.
 - Para URLs, usar `/im%C3%A1genes_web/...` o `encodeURI('/imágenes_web/...')`. Alternativa recomendable: usar nombre ASCII `imagenes_web` para evitar problemas de URLs.
 - No usar el SVG de bus como si fuera un bus 3D real.
+
+## Aplicación
+
+Requisitos: Node.js y pnpm.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Abre `http://localhost:3000`. La ruta `/` contiene el scaffold de una sola página; los módulos, las demos y el contacto son placeholders. El formulario no envía datos, y el mapa y WhatsApp permanecen sin configurar hasta disponer de datos verificados.
+
+Validaciones disponibles:
+
+```bash
+pnpm typecheck
+pnpm build
+```
+
+GSAP y React Three Fiber están instalados para fases posteriores. No se carga ninguna escena 3D ni gráfico pesado en esta fase; cuando se agreguen, deben importarse de forma diferida y respetar `prefers-reduced-motion`.
