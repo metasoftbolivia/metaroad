@@ -36,6 +36,9 @@ export function ModuleExperience() {
   const modules = siteContent.modules.items
   const activeModule = modules[activeModuleIndex] ?? modules[0]
 
+
+  
+
   useEffect(() => {
     const root = rootRef.current
     if (!root || reducedMotion) return
